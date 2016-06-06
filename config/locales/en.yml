@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activemodel:
+    errors:
+      models:
+        com_session:
+          attributes:
+            handle:
+              must_be_a_communicator: "\"%{handle}\" does not belong to any registered Communicator"
