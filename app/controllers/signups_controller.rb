@@ -4,7 +4,7 @@ class SignupsController < ApplicationController
     @communicator = Communicator.create( creation_params )
 
     if @communicator.errors.any?
-      render controller: :home, action: :show
+      render 'home/show'
       return
     end
 

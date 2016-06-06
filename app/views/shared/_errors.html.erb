@@ -1,0 +1,11 @@
+<% if errors.any? %>
+  <div class="error_explanation">
+    <%= content_tag(heading_type, heading_content, class: 'heading') %>
+
+    <ul class='error_list'>
+    <% errors.full_messages.each do |msg| %>
+      <li class='error_message'><%= msg + '.' %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

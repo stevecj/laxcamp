@@ -20,9 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    errors:
+      models:
+
+        communicator:
+          attributes:
+            handle:
+              has_invalid_char: "may only contain letters, digits, underscores (\"_\"), dashes (\"-\"), and periods"
+
   activemodel:
     errors:
       models:
+
         com_session:
           attributes:
             handle:

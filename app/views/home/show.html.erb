@@ -4,26 +4,18 @@
   <h2>Sign Up</h2>
   <% @communicator ||= Communicator.new %>
   <%= form_for @communicator, as: :signup, url: signups_path do |f| %>
-    <% if @communicator.errors.any? %>
-      <div id="error_explanation">
-	<h3><%= pluralize(@communicator.errors.count, "error") %> prohibited this signup from being completed:</h3>
-
-	<ul>
-	<% @communicator.errors.full_messages.each do |msg| %>
-	  <li><%= msg %></li>
-	<% end %>
-	</ul>
-      </div>
-    <% end %>
+    <%= render_errors @communicator.errors, prohibiting: 'signup from being completed', heading_type: :h3 %>
 
     <div>
       <%= f.label :handle %>
       <%= f.text_field :handle %>
     </div>
+
     <div>
       <%= f.label :full_name %>
       <%= f.text_field :full_name %>
     </div>
+
     <%= f.submit 'Signup', id: 'signup_submit' %>
   <%end%>
 </section>
@@ -32,22 +24,13 @@
   <h2>Sign In</h2>
   <% @com_session ||= ComSession.new %>
   <%= form_for @com_session, url: session_path do |f| %>
-    <% if @com_session.errors.any? %>
-      <div id="error_explanation">
-	<h3><%= pluralize(@com_session.errors.count, "error") %> prohibited this signup from being completed:</h3>
-
-	<ul>
-	<% @com_session.errors.full_messages.each do |msg| %>
-	  <li><%= msg %></li>
-	<% end %>
-	</ul>
-      </div>
-    <% end %>
+    <%= render_errors @com_session.errors, prohibiting: 'sign-in from being completed', heading_type: :h3 %>
 
     <div>
       <%= f.label :handle %>
       <%= f.text_field :handle %>
     </div>
+
     <%= f.submit 'Sign in', id: 'com_session_submit' %>
   <%end%>
 </section>

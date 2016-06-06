@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
       return
     end
 
-    puts 'b'
     redirect_to venue_path
   end
 
