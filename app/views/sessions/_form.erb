@@ -1,0 +1,11 @@
+<% @com_session ||= ComSession.new %>
+<%= form_for @com_session, url: session_path do |f| %>
+  <%= render_errors @com_session.errors, prohibiting: 'sign-in from being completed', heading_type: :h3 %>
+
+  <div>
+    <%= f.label :handle %>
+    <%= f.text_field :handle %>
+  </div>
+
+  <%= f.submit 'Sign in', id: 'com_session_submit' %>
+<%end%>

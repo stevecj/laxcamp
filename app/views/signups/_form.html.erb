@@ -1,0 +1,16 @@
+<% @communicator ||= Communicator.new %>
+<%= form_for @communicator, as: :signup, url: signups_path do |f| %>
+  <%= render_errors @communicator.errors, prohibiting: 'signup from being completed', heading_type: :h3 %>
+
+  <div>
+    <%= f.label :handle %>
+    <%= f.text_field :handle %>
+  </div>
+
+  <div>
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name %>
+  </div>
+
+  <%= f.submit 'Signup', id: 'signup_submit' %>
+<%end%>
