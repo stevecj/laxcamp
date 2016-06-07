@@ -2,5 +2,18 @@
 <span class='handle'><%= session[:handle] %></span>
 <%= button_to 'Sign out', :session, method: :delete, id: :sign_out_action %>
 <section data-section-type='venue'>
-  ...
+  <% @messages ||= [] %>
+  <ul>
+    <% @messages.each do |msg| %>
+      <li data-author='<%= msg.communicator.handle %>'>
+        <span class='message_author'><%= msg.communicator.handle %></span>
+        <div><%= msg.content %></div>
+      </li>
+    <% end %>
+  </ul>
+  <% @message ||= Message.new %>
+  <%= form_for @message do |f| %>
+    <%= f.text_area :content %>
+    <%= f.submit id: :message_submit %>
+  <% end %>
 </section>

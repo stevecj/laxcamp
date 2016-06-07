@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :messages
   root to: 'home#show', as: :home
 
   resource :session, only: [:create, :destroy]
